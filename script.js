@@ -2,111 +2,101 @@ let cart = [];
 const cartItems = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
 
-// Order number generation
 function generateOrderNumber() {
   return "ORD-" + Math.floor(100000 + Math.random() * 900000);
 }
 
-// Update cart display (WITH REMOVE BUTTON)
-function updateCart() {
-  if (!cartItems || !cartTotal) return;
+// Quantity buttons
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("plus")) {
+    e.target.previousElementSibling.value++;
+  }
+  if (e.target.classList.contains("minus")) {
+    const input = e.target.nextElementSibling;
+    if (input.value > 1) input.value--;
+  }
+});
 
+// Update cart
+function updateCart() {
   cartItems.innerHTML = "";
   let total = 0;
 
   cart.forEach((item, index) => {
     const li = document.createElement("li");
-    li.classList.add("cart-item");
-
     const itemTotal = item.price * item.quantity;
 
-    const itemText = document.createElement("span");
-    itemText.textContent = `${item.name} x${item.quantity} - ₦${itemTotal.toFixed(2)}`;
+    li.innerHTML = `
+      ${item.name} x${item.quantity} — ₦${itemTotal.toFixed(2)}
+      <button class="remove-btn" data-index="${index}">Remove</button>
+    `;
 
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Remove";
-    removeBtn.classList.add("remove-btn");
-
-    removeBtn.addEventListener("click", () => {
-      cart.splice(index, 1);
-      updateCart();
-    });
-
-    li.appendChild(itemText);
-    li.appendChild(removeBtn);
     cartItems.appendChild(li);
-
     total += itemTotal;
   });
 
   cartTotal.textContent = `Total: ₦${total.toFixed(2)}`;
 }
 
+// Remove item
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("remove-btn")) {
+    const index = e.target.dataset.index;
+    cart.splice(index, 1);
+    updateCart();
+  }
+});
+
 // Add to cart
-document.querySelectorAll(".add-to-cart").forEach(button => {
-  button.addEventListener("click", (e) => {
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+  btn.addEventListener("click", e => {
     const product = e.target.closest(".product");
     const name = product.dataset.name;
     const price = parseFloat(product.dataset.price);
-    const quantityInput = product.querySelector(".quantity-input");
-    const quantity = parseInt(quantityInput.value);
+    const qty = parseInt(product.querySelector(".quantity-input").value);
 
-    if (isNaN(quantity) || quantity < 1) {
-      alert("Please select a valid quantity");
-      return;
-    }
-
-    const existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-      existingItem.quantity += quantity;
+    const existing = cart.find(i => i.name === name);
+    if (existing) {
+      existing.quantity += qty;
     } else {
-      cart.push({ name, price, quantity });
+      cart.push({ name, price, quantity: qty });
     }
 
     updateCart();
-    alert(`${quantity} piece(s) of ${name} added to cart`);
   });
 });
 
-// Checkout
-const checkout = document.getElementById("checkout");
+// Checkout + Paystack
+document.getElementById("checkout").addEventListener("click", () => {
+  if (cart.length === 0) return alert("Cart is empty");
 
-if (checkout) {
-  checkout.addEventListener("click", () => {
-    if (cart.length === 0) {
-      alert("Cart is empty!");
-      return;
-    }
+  const orderNumber = generateOrderNumber();
+  let orderText = "";
+  let total = 0;
 
-    const orderNumber = generateOrderNumber();
-    let orderText = "";
-    let displayText = "";
-    let totalAmount = 0;
-
-    cart.forEach(item => {
-      const itemTotal = item.price * item.quantity;
-
-      orderText += `${item.name} x${item.quantity} - ₦${itemTotal.toFixed(2)}\n`;
-      displayText += `• ${item.name} x${item.quantity} - ₦${itemTotal.toFixed(2)}\n`;
-
-      totalAmount += itemTotal;
-    });
-
-    alert(
-      `ORDER CONFIRMATION\n\n` +
-      `Order Number: ${orderNumber}\n\n` +
-      `Items Purchased:\n${displayText}\n` +
-      `Total: ₦${totalAmount.toFixed(2)}`
-    );
-
-    document.getElementById("order-number").value = orderNumber;
-    document.getElementById("order-details").value = orderText;
-    document.getElementById("total-amount").value = `₦${totalAmount.toFixed(2)}`;
-
-    document.getElementById("checkout-form").submit();
-
-    cart = [];
-    updateCart();
+  cart.forEach(i => {
+    const sum = i.price * i.quantity;
+    orderText += `${i.name} x${i.quantity} - ₦${sum}\n`;
+    total += sum;
   });
-}
+
+  // Paystack
+  let handler = PaystackPop.setup({
+    key: "pk_test_xxxxxxxxxxxxx", // replace with your key
+    email: "customer@email.com",
+    amount: total * 100,
+    ref: orderNumber,
+    callback: function () {
+      document.getElementById("order-number").value = orderNumber;
+      document.getElementById("order-details").value = orderText;
+      document.getElementById("total-amount").value = `₦${total}`;
+      document.getElementById("checkout-form").submit();
+
+      cart = [];
+      updateCart();
+      alert("Payment successful!");
+    }
+  });
+
+  handler.openIframe();
+});
