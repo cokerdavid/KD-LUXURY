@@ -18,12 +18,12 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 10%;
-  background: white;
+  background: rgb(189, 196, 100);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee93;
 }
 
 .logo {
@@ -72,7 +72,7 @@ body {
 
 .hero-content {
   position: relative;
-  color: #fff;
+  color: #ffffff91;
   z-index: 1;
 }
 
@@ -90,7 +90,7 @@ body {
   display: inline-block;
   padding: 12px 25px;
   background: #ff4081;
-  color: #fff;
+  color: #ffffffa4;
   text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
@@ -105,7 +105,7 @@ body {
 /* Shop Page */
 .shop {
   padding: 140px 10px 60px;
-  background: #fafafa;
+  background: #fafafa8a;
   text-align: center;
 }
 
@@ -121,7 +121,7 @@ body {
 }
 
 .product {
-  background: #fff;
+  background: #ffffffb2;
   border-radius: 6px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -164,7 +164,7 @@ body {
 }
 
 #cart-items li {
-  background: #fff;
+  background: #ffffffa8;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 4px;
@@ -173,7 +173,7 @@ body {
 /* Contact Page */
 .contact {
   padding: 140px 10% 60px;
-  background: #fafafa;
+  background: #fafafab2;
   text-align: center;
 }
 
