@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" type="image/png" href="favicon.png/WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KD LUXURY - Contact</title>
+  <title>KD LUXURY - Home</title>
   <link rel="stylesheet" href="style.css">
-<!-- Navigation -->
+</head>
+
+<body>
+
 <header>
   <nav class="navbar">
-    <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" alt="Kingdom Dynamic Logo" class="brand-logo">
-  <h1>Kingdom Dynamic</h1>
-</div>
+    <div class="brand-header">
+      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo" alt="Logo">
+      <h1>Kingdom Dynamic</h1>
+    </div>
+
+    <!-- DESKTOP LINKS -->
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
+
+    <!-- HAMBURGER (MOBILE) -->
+    <div class="hamburger" id="hamburger">&#9776;</div>
   </nav>
 </header>
 
+<!-- ✅ MISSING OVERLAY (ADDED) -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- ✅ MOBILE MENU (FIXED IDS & CLASSES) -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="close-btn" id="closeMenu">✕</div>
+
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="contact.html">Contact</a>
+</div>
+  
 <!-- Contact Section -->
 <section class="contact">
   <h1>Contact Us</h1>
@@ -81,5 +102,6 @@
 
 </body>
 </html>
+
 
 
