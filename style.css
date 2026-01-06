@@ -65,7 +65,7 @@ body {
 
 /* ===================== HERO ===================== */
 .hero {
-  min-height: 110svh; /* mobile-safe height */
+  min-height: 115svh; /* mobile-safe height */
   background: url("https://images.unsplash.com/photo-1520975918310-3a6d0a1c0f4a?auto=format&fit=crop&w=1600&q=80")
     no-repeat center center / cover;
   position: relative;
@@ -209,5 +209,6 @@ body {
     gap: 10px;
   }
 }
+
 
 
