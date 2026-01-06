@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KD LUXURY - Home</title>
+  <title>KD LUXURY - Contact</title>
+  <link rel="icon" type="image/png" href="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- ===================== NAVBAR ===================== -->
 <header>
   <nav class="navbar">
     <div class="brand-header">
-      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo" alt="Logo">
+      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg"
+           alt="Kingdom Dynamic Logo"
+           class="brand-logo">
       <h1>Kingdom Dynamic</h1>
     </div>
 
     <!-- DESKTOP LINKS -->
     <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
 
     <!-- HAMBURGER (MOBILE) -->
@@ -28,19 +32,19 @@
   </nav>
 </header>
 
-<!-- ✅ MISSING OVERLAY (ADDED) -->
+<!-- ===================== MOBILE OVERLAY ===================== -->
 <div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- ✅ MOBILE MENU (FIXED IDS & CLASSES) -->
+<!-- ===================== MOBILE MENU ===================== -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="close-btn" id="closeMenu">✕</div>
 
   <a href="index.html">Home</a>
   <a href="shop.html">Shop</a>
-  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="active">Contact</a>
 </div>
-  
-<!-- Contact Section -->
+
+<!-- ===================== CONTACT SECTION ===================== -->
 <section class="contact">
   <h1>Contact Us</h1>
 
@@ -54,10 +58,10 @@
     <input type="email" name="email" placeholder="Your Email" required>
     <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
 
-    <!-- Anti-spam (do not remove) -->
+    <!-- Anti-spam -->
     <input type="text" name="_gotcha" style="display:none">
 
-    <!-- Helps you identify the form -->
+    <!-- Identifier -->
     <input type="hidden" name="form_type" value="contact">
 
     <button type="submit" class="btn">Send Message</button>
@@ -66,22 +70,19 @@
   </form>
 </section>
 
-<!-- Inline JS ONLY for contact page -->
+<!-- ===================== CONTACT PAGE JS ===================== -->
 <script>
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     status.textContent = "Sending...";
-
-    const data = new FormData(form);
 
     try {
       const response = await fetch(form.action, {
         method: "POST",
-        body: data,
+        body: new FormData(form),
         headers: { "Accept": "application/json" }
       });
 
@@ -93,15 +94,17 @@
         status.textContent = "Failed to send message. Try again.";
         status.style.color = "red";
       }
-    } catch (err) {
+    } catch {
       status.textContent = "Network error. Check connection.";
       status.style.color = "red";
     }
   });
 </script>
 
+<!-- ===================== GLOBAL JS ===================== -->
+<script src="script.js"></script>
+
 </body>
 </html>
-
 
 
