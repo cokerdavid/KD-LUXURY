@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" type="image/png" href="favicon.png/WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg">
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>KD LUXURY - Home</title>
-
-  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="brand-header">
-  <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" alt="Kingdom Dynamic Logo" class="brand-logo">
-  <h1>Kingdom Dynamic</h1>
-</div>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Style Redefined</h1>
-      <p>Trendy, Comfortable & Affordable Fashion</p>
-      <a href="shop.html" class="btn">Shop Now</a>
+<header>
+  <nav class="navbar">
+    <div class="brand-header">
+      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo">
+      <h1>Kingdom Dynamic</h1>
     </div>
-  </section>
 
-  <script src="script.js"></script>
-  
+    <!-- DESKTOP LINKS -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close" id="closeMenu">&times;</span>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Style Redefined</h1>
+    <p>Trendy, Comfortable & Affordable Fashion</p>
+    <a href="shop.html" class="btn">Shop Now</a>
+  </div>
+</section>
+
+<script src="script.js"></script>
+ 
 </body><!-- Hidden Formspree form -->
 <form id="checkout-form" action="https://formspree.io/f/xgvnkbnj" method="POST" style="display:none;">
   <input type="hidden" name="order_number" id="order-number">
   <input type="hidden" name="order_details" id="order-details">
   <input type="hidden" name="total_amount" id="total-amount">
 </form>
+
 
 
