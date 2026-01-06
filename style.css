@@ -200,3 +200,48 @@ body {
   width: 100%;
   padding: 12px;
 }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: hsl(142, 70%, 49%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* space between logo and text */
+  padding: 10px 20px;
+  background: rgb(189, 196, 100);
+   /* similar to your yellow bar */
+}
+
+.brand-logo {
+  width: 40px;   /* adjust size */
+  height: auto;
+}
+
+.brand-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
