@@ -12,30 +12,35 @@
 <header>
   <nav class="navbar">
     <div class="brand-header">
-      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo">
+      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo" alt="Logo">
       <h1>Kingdom Dynamic</h1>
     </div>
 
     <!-- DESKTOP LINKS -->
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
 
-    <!-- HAMBURGER -->
+    <!-- HAMBURGER (MOBILE) -->
     <div class="hamburger" id="hamburger">&#9776;</div>
   </nav>
 </header>
 
-<!-- MOBILE MENU -->
+<!-- ✅ MISSING OVERLAY (ADDED) -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- ✅ MOBILE MENU (FIXED IDS & CLASSES) -->
 <div class="mobile-menu" id="mobileMenu">
-  <span class="close" id="closeMenu">&times;</span>
+  <div class="close-btn" id="closeMenu">✕</div>
+
   <a href="index.html">Home</a>
   <a href="shop.html">Shop</a>
   <a href="contact.html">Contact</a>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -45,14 +50,16 @@
   </div>
 </section>
 
+<!-- SCRIPT MUST BE LAST -->
 <script src="script.js"></script>
- 
+  
 </body><!-- Hidden Formspree form -->
 <form id="checkout-form" action="https://formspree.io/f/xgvnkbnj" method="POST" style="display:none;">
   <input type="hidden" name="order_number" id="order-number">
   <input type="hidden" name="order_details" id="order-details">
   <input type="hidden" name="total_amount" id="total-amount">
 </form>
+
 
 
 
