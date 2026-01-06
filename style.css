@@ -6,18 +6,19 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
-  background:url('IMG_5737.jpg') no-repeat center center/cover;
+  background: url('IMG_5737.jpg') no-repeat center center / cover;
   color: #333;
+  overflow-x: hidden; /* IMPORTANT for mobile */
 }
 
-/* Navbar */
+/* ===================== NAVBAR ===================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10%;
+  padding: 14px 16px; /* reduced for mobile */
   background: rgb(189, 196, 100);
   position: fixed;
   width: 100%;
@@ -26,188 +27,169 @@ body {
   border-bottom: 1px solid #eeeeee93;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #111;
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+.brand-logo {
+  width: 36px;
+  height: auto;
+}
+
+.brand-header h1 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Nav links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 14px;
 }
 
 .nav-links li a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: 0.3s;
+  font-size: 14px;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
+.nav-links li a.active,
+.nav-links li a:hover {
   color: #ff4081;
 }
 
-/* Hero Section */
+/* ===================== HERO ===================== */
 .hero {
-  height: 100vh;
-  background: url("https://images.unsplash.com/photo-1520975918310-3a6d0a1c0f4a?auto=format&fit=crop&w=1600&q=80") no-repeat center center/cover;
+  min-height: 90svh; /* mobile-safe height */
+  background: url("https://images.unsplash.com/photo-1520975918310-3a6d0a1c0f4a?auto=format&fit=crop&w=1600&q=80")
+    no-repeat center center / cover;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 120px 16px 60px; /* space for fixed navbar */
 }
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
   position: relative;
-  color: #ffffff91;
   z-index: 1;
+  color: #ffffff;
+  max-width: 600px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: clamp(24px, 6vw, 42px);
+  margin-bottom: 16px;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
+  font-size: clamp(14px, 4vw, 18px);
+  margin-bottom: 24px;
+  opacity: 0.9;
 }
 
+/* Button */
 .btn {
-  display: inline-block;
-  padding: 12px 25px;
+  padding: 12px 26px;
   background: #ff4081;
-  color: #ffffffa4;
+  color: #fff;
   text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
+  display: inline-block;
 }
 
 .btn:hover {
   background: #e73370;
 }
 
-/* Shop Page */
+/* ===================== SHOP ===================== */
 .shop {
-  padding: 140px 10px 60px;
-  background: #fafafa8a;
+  padding: 120px 16px 60px;
+  background: #fafafa;
   text-align: center;
 }
 
 .shop h1 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+  font-size: clamp(22px, 5vw, 36px);
+  margin-bottom: 30px;
 }
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
 }
 
 .product {
-  background: #ffffffb2;
+  background: #ffffff;
   border-radius: 6px;
-  padding: 20px;
+  padding: 16px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.product:hover {
-  transform: translateY(-5px);
 }
 
 .product img {
   width: 100%;
   height: auto;
   border-radius: 4px;
-  margin-bottom: 15px;
 }
 
 .product h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin: 10px 0;
 }
 
 .product p {
-  font-size: 1rem;
   color: #ff4081;
   font-weight: bold;
-  margin-bottom: 15px;
 }
 
-/* Cart */
-.cart {
-  margin-top: 50px;
-  text-align: center;
-}
-
-#cart-items {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
-}
-
-#cart-items li {
-  background: #ffffffa8;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-}
-
-/* Contact Page */
+/* ===================== CONTACT ===================== */
 .contact {
-  padding: 140px 10% 60px;
-  background: #fafafab2;
+  padding: 120px 16px 60px;
+  background: #fafafa;
   text-align: center;
 }
 
 .contact h1 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+  font-size: clamp(22px, 5vw, 36px);
+  margin-bottom: 30px;
 }
 
 .contact-form {
   max-width: 500px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-.contact-form button {
-  width: 100%;
-  padding: 12px;
-}
-
+/* ===================== WHATSAPP ===================== */
 .whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: hsl(142, 70%, 49%);
+  bottom: 16px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -217,31 +199,13 @@ body {
 }
 
 .whatsapp-float img {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-.brand-header {
-  display: flex;
-  align-items: center;
-  gap: 12px; /* space between logo and text */
-  padding: 10px 20px;
-  background: rgb(189, 196, 100);
-   /* similar to your yellow bar */
-}
-
-.brand-logo {
-  width: 40px;   /* adjust size */
-  height: auto;
-}
-
-.brand-header h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-  color: #000;
+/* ===================== MOBILE MENU FIX ===================== */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 10px;
+  }
 }
