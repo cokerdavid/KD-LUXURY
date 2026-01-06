@@ -203,8 +203,7 @@ body {
   height: 32px;
 }
 
-/* ===================== MOBILE MENU FIX ===================== */
-/* ===== MOBILE NAV FIX ===== */
+/* ===== MOBILE MENU (PRO LEVEL) ===== */
 
 .hamburger {
   display: none;
@@ -212,39 +211,58 @@ body {
   cursor: pointer;
 }
 
-/* Mobile menu hidden */
+/* Dark overlay */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 1500;
+}
+
+/* Slide menu from LEFT */
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 100%;
+  left: -100%;
+  width: 80%;
+  max-width: 300px;
   height: 100vh;
   background: rgb(189, 196, 100);
   display: flex;
   flex-direction: column;
   padding: 80px 20px;
   transition: 0.3s ease;
-  z-index: 9999;
+  z-index: 2000;
 }
 
 .mobile-menu a {
   text-decoration: none;
   color: #000;
-  font-size: 22px;
+  font-size: 20px;
   padding: 15px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
-.mobile-menu.active {
-  right: 0;
-}
-
-.close {
+/* Close button */
+.close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 32px;
+  font-size: 26px;
   cursor: pointer;
+}
+
+/* ACTIVE STATES */
+.mobile-menu.active {
+  left: 0;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* MOBILE ONLY */
