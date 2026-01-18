@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart | Kingdom Dynamics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Your Cart</h1>
+
+<div class="cart-page">
+  <ul id="cart-items"></ul>
+  <p id="cart-total">Total: ₦0.00</p>
+  <button id="checkout" class="btn">Checkout</button>
+</div>
+
+<!-- FORMSPREE -->
+<form
+  id="checkout-form"
+  action="https://formspree.io/f/xgvnkbnj"
+  method="POST"
+  style="display:none;"
+>
+  <input type="hidden" id="order-number" name="order_number">
+  <input type="hidden" id="order-details" name="order_details">
+  <input type="hidden" id="total-amount" name="total_amount">
+</form>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
