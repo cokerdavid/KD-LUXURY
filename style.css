@@ -10,7 +10,7 @@ body {
   line-height: 1.6;
   background: url('IMG_5737.jpg') no-repeat center center / cover;
   color: #333;
-  overflow-x: hidden; /* IMPORTANT for mobile */
+  overflow-x: hidden;
 }
 
 /* ===================== NAVBAR ===================== */
@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px; /* reduced for mobile */
+  padding: 14px 16px;
   background: rgb(189, 196, 100);
   position: fixed;
   width: 100%;
@@ -63,9 +63,22 @@ body {
   color: #ff4081;
 }
 
+/* ===== CART + MENU ICONS ===== */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cart-icon {
+  font-size: 22px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* ===================== HERO ===================== */
 .hero {
-  min-height: 115svh; /* mobile-safe height */
+  min-height: 90svh;
   background: url("https://images.unsplash.com/photo-1520975918310-3a6d0a1c0f4a?auto=format&fit=crop&w=1600&q=80")
     no-repeat center center / cover;
   position: relative;
@@ -73,7 +86,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 120px 16px 60px; /* space for fixed navbar */
+  padding: 120px 16px 60px;
 }
 
 .hero-overlay {
@@ -105,10 +118,10 @@ body {
   padding: 12px 26px;
   background: #ff4081;
   color: #fff;
-  text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
-  display: inline-block;
+  border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -142,7 +155,6 @@ body {
 
 .product img {
   width: 100%;
-  height: auto;
   border-radius: 4px;
 }
 
@@ -156,6 +168,47 @@ body {
   font-weight: bold;
 }
 
+/* ===================== CART PAGE ===================== */
+.cart-page {
+  padding: 120px 16px 60px;
+  max-width: 600px;
+  margin: auto;
+  background: #fafafa;
+}
+
+.cart-page ul {
+  list-style: none;
+}
+
+.cart-page li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cart-page img {
+  border-radius: 4px;
+}
+
+#cart-total {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.remove-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
 /* ===================== CONTACT ===================== */
 .contact {
   padding: 120px 16px 60px;
@@ -166,20 +219,6 @@ body {
 .contact h1 {
   font-size: clamp(22px, 5vw, 36px);
   margin-bottom: 30px;
-}
-
-.contact-form {
-  max-width: 500px;
-  margin: auto;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
 }
 
 /* ===================== WHATSAPP ===================== */
@@ -203,15 +242,13 @@ body {
   height: 32px;
 }
 
-/* ===== MOBILE MENU (PRO LEVEL) ===== */
-
+/* ===================== MOBILE MENU ===================== */
 .hamburger {
   display: none;
   font-size: 28px;
   cursor: pointer;
 }
 
-/* Dark overlay */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -222,7 +259,6 @@ body {
   z-index: 1500;
 }
 
-/* Slide menu from LEFT */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -246,7 +282,6 @@ body {
   border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
-/* Close button */
 .close-btn {
   position: absolute;
   top: 20px;
@@ -255,7 +290,6 @@ body {
   cursor: pointer;
 }
 
-/* ACTIVE STATES */
 .mobile-menu.active {
   left: 0;
 }
