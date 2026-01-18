@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" type="image/png" href="favicon.png/WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KD LUXURY - shop</title>
-  <link rel="icon" type="image/png" href="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg">
-  <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KD LUXURY - Shop</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 
 <body>
 
@@ -15,19 +13,21 @@
 <header>
   <nav class="navbar">
     <div class="brand-header">
-      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo" alt="Logo">
+      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo" />
       <h1>Kingdom Dynamics</h1>
     </div>
 
-    <!-- DESKTOP LINKS -->
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="shop.html" class="active">Shop</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
 
-    <!-- HAMBURGER -->
-    <div class="hamburger" id="hamburger">&#9776;</div>
+    <!-- CART + MENU -->
+    <div class="nav-icons">
+      <a href="cart.html" class="cart-icon">🛒</a>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
   </nav>
 </header>
 
@@ -37,21 +37,20 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="close-btn" id="closeMenu">✕</div>
-
   <a href="index.html">Home</a>
   <a href="shop.html" class="active">Shop</a>
   <a href="contact.html">Contact</a>
 </div>
 
-<!-- SHOP SECTION -->
+<!-- SHOP -->
 <section class="shop">
   <h1>Our Collection</h1>
 
   <div class="products">
 
-   <!-- PRODUCT -->
+    <!-- PRODUCT -->
     <div class="product" data-name="TANK TOP" data-price="25000">
-      <img src="IMG_5723.JPG" alt="TANK TOP">
+      <img src="IMG_5723.JPG">
       <h3>TANK TOP</h3>
       <p>₦25,000</p>
 
@@ -63,7 +62,6 @@
 
       <button class="btn add-to-cart">Add to Cart</button>
     </div>
-
 
     <div class="product" data-name="Jacket" data-price="50000">
       <img src="IMG_5726.JPG" alt="Jacket">
@@ -215,34 +213,8 @@
 
       <button class="btn add-to-cart">Add to Cart</button>
     </div>
-
-  <!-- CART -->
-  <div class="cart">
-    <h2>Your Cart</h2>
-    <ul id="cart-items"></ul>
-    <p id="cart-total">Total: ₦0.00</p>
-    <button id="checkout" class="btn">Checkout</button>
-  </div>
-</section>
-<!-- HIDDEN CHECKOUT FORM -->
-<form
-  id="checkout-form"
-  action="https://formspree.io/f/xgvnkbnj"
-  method="POST"
-  style="display:none;"
->
-  <input type="hidden" name="order_number" id="order-number">
-  <input type="hidden" name="order_details" id="order-details">
-  <input type="hidden" name="total_amount" id="total-amount">
-</form>
-
-<!-- SCRIPTS -->
-<script src="https://js.paystack.co/v1/inline.js"></script>
-<script src="script.js"></script>
-
-<!-- WHATSAPP FLOAT -->
 <a
-  href="https://wa.me/2348146814953?text=Hello This is my order Number"
+  href="https://wa.me/2348146814953?text=Hello%20I%20need%20help"
   class="whatsapp-float"
   target="_blank"
   aria-label="Chat on WhatsApp"
@@ -251,17 +223,4 @@
     src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
     alt="WhatsApp"
   />
-</a>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
+<script src="script.js"></script>
