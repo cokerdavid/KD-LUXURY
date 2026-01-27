@@ -1,40 +1,36 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KD LUXURY - Shop</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KD LUXURY - Shop</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
 <header>
-  <nav class="navbar">
-    <div class="brand-header">
-      <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo" />
-      <h1>Kingdom Dynamics</h1>
-    </div>
+<nav class="navbar">
+  <div class="brand-header">
+    <img src="WhatsApp Image 2026-01-06 at 10.02.55 AM.jpeg" class="brand-logo">
+    <h1>Kingdom Dynamics</h1>
+  </div>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html" class="active">Shop</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
 
-    <!-- CART + MENU -->
-    <div class="nav-icons">
-      <a href="cart.html" class="cart-icon">🛒</a>
-      <div class="hamburger" id="hamburger">&#9776;</div>
-    </div>
-  </nav>
+  <div class="nav-icons">
+    <a href="cart.html" class="cart-icon">🛒 <span id="cart-count">0</span></a>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </div>
+</nav>
 </header>
 
-<!-- OVERLAY -->
 <div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="close-btn" id="closeMenu">✕</div>
   <a href="index.html">Home</a>
@@ -42,185 +38,155 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<!-- SHOP -->
 <section class="shop">
-  <h1>Our Collection</h1>
+<h1>Our Collection</h1>
 
-  <div class="products">
+<div class="products">
 
-    <!-- PRODUCT -->
+<!-- TEE SHIRT (MERGED + IMAGES) -->
+<div class="product" data-name="Tee Shirt" data-price="35000">
+  <img src="IMG_5731.JPG" class="main-img">
+
+  <div class="thumbs">
+    <img src="IMG_5731.JPG" class="thumb active">
+    <img src="WhatsApp Image 2025-12-29 at 2.19.26 PM.jpeg" class="thumb">
+    <img src="WhatsApp Image 2025-12-29 at 2.19.27 PM (1).jpeg" class="thumb">
+    <img src="WhatsApp Image 2025-12-29 at 2.19.27 PM (2).jpeg" class="thumb">
+  </div>
+
+  <h3>Tee Shirt</h3>
+  <p>₦35,000</p>
+
+  <select class="size-select">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>XL</option>
+  </select>
+
+  <input type="number" class="quantity-input" value="1" min="1">
+  <button class="btn add-to-cart">Add to Cart</button>
+
+<!-- CROP TOP (MERGED + IMAGES) -->
+<div class="product" data-name="CROP TOP" data-price="35000">
+  <img src="IMG_5731.JPG" class="main-img">
+
+  <div class="thumbs">
+    <img src="WhatsApp Image 2025-12-29 at 2.19.26 PM (1).jpeg" class="thumb active">
+    <img src="WhatsApp Image 2025-12-29 at 2.19.26 PM (2).jpeg" class="thumb">
+  </div>
+
+  <h3>CROP TOP</h3>
+  <p>₦35,000</p>
+
+  <select class="size-select">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>XL</option>
+  </select>
+
+  <input type="number" class="quantity-input" value="1" min="1">
+  <button class="btn add-to-cart">Add to Cart</button>
+</div>
+<!-- TANK TOP -->
     <div class="product" data-name="TANK TOP" data-price="25000">
       <img src="IMG_5723.JPG">
       <h3>TANK TOP</h3>
       <p>₦25,000</p>
 
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
+      <select class="size-select">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>XL</option>
+  </select>
 
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
+  <input type="number" class="quantity-input" value="1" min="1">
+  <button class="btn add-to-cart">Add to Cart</button>
+</div>
 
     <div class="product" data-name="Jacket" data-price="50000">
       <img src="IMG_5726.JPG" alt="Jacket">
       <h3>Jacket</h3>
       <p>₦50,000</p>
 
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
+      <select class="size-select">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>XL</option>
+  </select>
 
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
+  <input type="number" class="quantity-input" value="1" min="1">
+  <button class="btn add-to-cart">Add to Cart</button>
+</div>
 
     <div class="product" data-name="Hoodies" data-price="60000">
       <img src="IMG_5728.JPG" alt="Hoodies">
       <h3>Hoodies</h3>
       <p>₦60,000</p>
 
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
+      <select class="size-select">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>XL</option>
+  </select>
 
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
+  <input type="number" class="quantity-input" value="1" min="1">
+  <button class="btn add-to-cart">Add to Cart</button>
+</div>
 
     <div class="product" data-name="Jerseys Shirt" data-price="60000">
       <img src="IMG_5722.JPG" alt="Jerseys Shirt">
       <h3>Jerseys Shirt</h3>
       <p>₦60,000</p>
 
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
+      <select class="size-select">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>XL</option>
+  </select>
 
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
+  <input type="number" class="quantity-input" value="1" min="1">
+  <button class="btn add-to-cart">Add to Cart</button>
+</div>
 
     <div class="product" data-name="Harmless Shirt" data-price="35000">
       <img src="WhatsApp Image 2025-12-29 at 2.19.27 PM.jpeg" alt="Harmless Shirt">
       <h3>Harmless Shirt</h3>
       <p>₦35,000</p>
 
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
+      <select class="size-select">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>XL</option>
+  </select>
 
+  <input type="number" class="quantity-input" value="1" min="1">
+  <button class="btn add-to-cart">Add to Cart</button>
+</div>
 
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
 <div class="product" data-name="Zip-up track Jacket" data-price="50000">
       <img src="WhatsApp Image 2025-12-29 at 2.19.27 PM (3).jpeg" alt="Zip-up track Jacket">
       <h3>Zip-up track Jacket</h3>
       <p>₦50,000</p>
 
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
+      <select class="size-select">
+    <option>Small</option>
+    <option>Medium</option>
+    <option>Large</option>
+    <option>XL</option>
+  </select>
 
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
-    <div class="product" data-name="Tee Shirt" data-price="35000">
-      <img src="IMG_5731.JPG" alt="Tee Shirt">
-      <h3>Tee Shirt</h3>
-      <p>₦35,000</p>
+  <input type="number" class="quantity-input" value="1" min="1">
+  <button class="btn add-to-cart">Add to Cart</button>
+</div>
+</section>
 
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
-
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
-
-    <div class="product" data-name="Tee Shirt" data-price="35000">
-      <img src="WhatsApp Image 2025-12-29 at 2.19.26 PM.jpeg" alt="Tee Shirt">
-      <h3>Tee Shirt</h3>
-      <p>₦35,000</p>
-
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
-
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
-<div class="product" data-name="Tee Shirt" data-price="35000">
-      <img src="WhatsApp Image 2025-12-29 at 2.19.27 PM (2).jpeg" alt="Tee Shirt">
-      <h3>Tee Shirt</h3>
-      <p>₦35,000</p>
-
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
-
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
-<div class="product" data-name="Tee Shirt" data-price="35000">
-      <img src="WhatsApp Image 2025-12-29 at 2.19.27 PM (1).jpeg" alt="Tee Shirt">
-      <h3>Tee Shirt</h3>
-      <p>₦35,000</p>
-
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
-
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
-
-    <div class="product" data-name="CROP TOP" data-price="35000">
-      <img src="WhatsApp Image 2025-12-29 at 2.19.26 PM (2).jpeg" alt="CROP TOP">
-      <h3>CROP TOP</h3>
-      <p>₦35,000</p>
-
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
-
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
-
-    <div class="product" data-name="Crop TOP" data-price="35000">
-      <img src="WhatsApp Image 2025-12-29 at 2.19.26 PM (1).jpeg" alt="Crop TOP">
-      <h3>Crop TOP</h3>
-      <p>₦35,000</p>
-
-      <div class="qty-control">
-        <button class="qty-btn minus">−</button>
-        <input type="number" class="quantity-input" value="1" min="1">
-        <button class="qty-btn plus">+</button>
-      </div>
-
-      <button class="btn add-to-cart">Add to Cart</button>
-    </div>
-<a
-  href="https://wa.me/2348146814953?text=Hello%20I%20need%20help"
-  class="whatsapp-float"
-  target="_blank"
-  aria-label="Chat on WhatsApp"
->
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-    alt="WhatsApp"
-  />
 <script src="script.js"></script>
+</body>
+</html>
