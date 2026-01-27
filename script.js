@@ -75,7 +75,7 @@ document.querySelectorAll(".add-to-cart").forEach(btn => {
     const price = Number(product.dataset.price);
     const qty = Number(product.querySelector(".quantity-input").value);
     const image = product.querySelector(".main-img")?.src || product.querySelector("img").src;
-    const size = product.querySelector(".size-select").value;
+    const size = product.querySelector(".size-select")?.value || "Default";
 
     const existing = cart.find(i => i.name === name && i.size === size);
 
@@ -88,7 +88,7 @@ document.querySelectorAll(".add-to-cart").forEach(btn => {
   };
 });
 
-/* ===== CHECKOUT (FIXED) ===== */
+/* ===== CHECKOUT WITH CUSTOMER DETAILS ===== */
 const checkoutBtn = document.getElementById("checkout");
 
 if (checkoutBtn) {
@@ -96,6 +96,16 @@ if (checkoutBtn) {
 
     if (cart.length === 0) {
       alert("Your cart is empty");
+      return;
+    }
+
+    const name = document.getElementById("customer-name")?.value.trim();
+    const phone = document.getElementById("customer-phone")?.value.trim();
+    const address = document.getElementById("customer-address")?.value.trim();
+    const state = document.getElementById("customer-state")?.value.trim();
+
+    if (!name || !phone || !address || !state) {
+      alert("Please fill in all customer details");
       return;
     }
 
@@ -110,13 +120,24 @@ if (checkoutBtn) {
       orderDetails += `${item.name} (${item.size}) x${item.quantity} - ₦${sum}\n`;
     });
 
+    // Fill Formspree fields
     document.getElementById("order-number").value = orderNumber;
     document.getElementById("order-details").value = orderDetails;
     document.getElementById("total-amount").value = total;
 
+    document.getElementById("fs-name").value = name;
+    document.getElementById("fs-phone").value = phone;
+    document.getElementById("fs-address").value = address;
+    document.getElementById("fs-state").value = state;
+
     document.getElementById("checkout-form").submit();
 
+    alert(`Order placed successfully!\nYour Order Number is ${orderNumber}`);
+
     localStorage.removeItem("cart");
+    cart = [];
+    updateCart();
+    updateCartCount();
   };
 }
 
