@@ -6,12 +6,10 @@ const mobileMenu = document.getElementById("mobileMenu");
 const closeMenu = document.getElementById("closeMenu");
 const overlay = document.getElementById("menuOverlay");
 
-if (hamburger) {
-  hamburger.onclick = () => {
-    mobileMenu.classList.add("active");
-    overlay.classList.add("active");
-  };
-}
+if (hamburger) hamburger.onclick = () => {
+  mobileMenu.classList.add("active");
+  overlay.classList.add("active");
+};
 
 if (closeMenu) closeMenu.onclick = closeMobileMenu;
 if (overlay) overlay.onclick = closeMobileMenu;
@@ -21,11 +19,17 @@ function closeMobileMenu() {
   overlay.classList.remove("active");
 }
 
-/* ===== CART LOGIC ===== */
+/* ===== CART ===== */
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function updateCartCount() {
+  const el = document.getElementById("cart-count");
+  if (!el) return;
+  el.textContent = cart.reduce((t, i) => t + i.quantity, 0);
 }
 
 function updateCart() {
@@ -42,7 +46,7 @@ function updateCart() {
 
     li.innerHTML = `
       <img src="${item.image}" width="70">
-      ${item.name} x${item.quantity}
+      <strong>${item.name}</strong> (${item.size}) x${item.quantity}
       ₦${sum}
       <button class="remove-btn" data-index="${index}">Remove</button>
     `;
@@ -52,6 +56,7 @@ function updateCart() {
   });
 
   cartTotal.textContent = `Total: ₦${total.toFixed(2)}`;
+  updateCartCount();
 }
 
 document.addEventListener("click", e => {
@@ -68,56 +73,32 @@ document.querySelectorAll(".add-to-cart").forEach(btn => {
     const product = e.target.closest(".product");
     const name = product.dataset.name;
     const price = Number(product.dataset.price);
-    const quantity = Number(product.querySelector(".quantity-input").value);
-    const image = product.querySelector("img").src;
+    const qty = Number(product.querySelector(".quantity-input").value);
+    const image = product.querySelector(".main-img")?.src || product.querySelector("img").src;
+    const size = product.querySelector(".size-select").value;
 
-    const existing = cart.find(i => i.name === name);
-    if (existing) {
-      existing.quantity += quantity;
-    } else {
-      cart.push({ name, price, quantity, image });
-    }
+    const existing = cart.find(i => i.name === name && i.size === size);
+
+    if (existing) existing.quantity += qty;
+    else cart.push({ name, price, quantity: qty, image, size });
 
     saveCart();
-    alert("Added to cart");
+    updateCart();
+    alert(`${name} (${size}) added to cart`);
   };
 });
 
-/* ===== CHECKOUT ===== */
-const checkoutBtn = document.getElementById("checkout");
-if (checkoutBtn) {
-  checkoutBtn.onclick = () => {
-    if (cart.length === 0) return alert("Cart is empty");
-
-    const orderNumber = "ORD-" + Date.now();
-    let details = "";
-    let total = 0;
-
-    cart.forEach(i => {
-      details += `${i.name} x${i.quantity}\n`;
-      total += i.price * i.quantity;
-    });
-
-    PaystackPop.setup({
-      key: "pk_test_xxxxxxxxxxxxx",
-      email: "customer@email.com",
-      amount: total * 100,
-      ref: orderNumber,
-      callback: () => {
-        document.getElementById("order-number").value = orderNumber;
-        document.getElementById("order-details").value = details;
-        document.getElementById("total-amount").value = total;
-        document.getElementById("checkout-form").submit();
-
-        cart = [];
-        saveCart();
-        updateCart();
-        alert("Payment successful");
-      }
-    }).openIframe();
+/* ===== IMAGE SWITCHER ===== */
+document.querySelectorAll(".thumb").forEach(thumb => {
+  thumb.onclick = () => {
+    const product = thumb.closest(".product");
+    product.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
+    thumb.classList.add("active");
+    product.querySelector(".main-img").src = thumb.src;
   };
-}
+});
 
 updateCart();
+updateCartCount();
 
 });
