@@ -13,7 +13,14 @@
 <div class="cart-page">
   <ul id="cart-items"></ul>
   <p id="cart-total">Total: ₦0.00</p>
-  <button id="checkout" class="btn">Checkout</button>
+
+  <!-- CUSTOMER DETAILS -->
+  <input type="text" id="customer-name" placeholder="Full Name" required>
+  <input type="tel" id="customer-phone" placeholder="Phone Number" required>
+  <input type="text" id="customer-address" placeholder="Delivery Address" required>
+  <input type="text" id="customer-state" placeholder="State" required>
+
+  <button id="checkout" class="btn">Place Order</button>
 </div>
 
 <!-- FORMSPREE -->
@@ -23,11 +30,16 @@
   method="POST"
   style="display:none;"
 >
-  <input type="hidden" id="order-number" name="order_number">
-  <input type="hidden" id="order-details" name="order_details">
-  <input type="hidden" id="total-amount" name="total_amount">
+  <input type="hidden" name="order_number" id="order-number">
+  <input type="hidden" name="order_details" id="order-details">
+  <input type="hidden" name="total_amount" id="total-amount">
+
+  <input type="hidden" name="customer_name" id="fs-name">
+  <input type="hidden" name="customer_phone" id="fs-phone">
+  <input type="hidden" name="customer_address" id="fs-address">
+  <input type="hidden" name="customer_state" id="fs-state">
 </form>
-  
+
 <script src="script.js"></script>
 </body>
 </html>
