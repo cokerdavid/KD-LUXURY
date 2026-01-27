@@ -88,6 +88,38 @@ document.querySelectorAll(".add-to-cart").forEach(btn => {
   };
 });
 
+/* ===== CHECKOUT (FIXED) ===== */
+const checkoutBtn = document.getElementById("checkout");
+
+if (checkoutBtn) {
+  checkoutBtn.onclick = () => {
+
+    if (cart.length === 0) {
+      alert("Your cart is empty");
+      return;
+    }
+
+    const orderNumber = "KD-" + Date.now();
+
+    let orderDetails = "";
+    let total = 0;
+
+    cart.forEach(item => {
+      const sum = item.price * item.quantity;
+      total += sum;
+      orderDetails += `${item.name} (${item.size}) x${item.quantity} - ₦${sum}\n`;
+    });
+
+    document.getElementById("order-number").value = orderNumber;
+    document.getElementById("order-details").value = orderDetails;
+    document.getElementById("total-amount").value = total;
+
+    document.getElementById("checkout-form").submit();
+
+    localStorage.removeItem("cart");
+  };
+}
+
 /* ===== IMAGE SWITCHER ===== */
 document.querySelectorAll(".thumb").forEach(thumb => {
   thumb.onclick = () => {
