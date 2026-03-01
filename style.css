@@ -35,7 +35,6 @@ body {
 
 .brand-logo {
   width: 36px;
-  height: auto;
 }
 
 .brand-header h1 {
@@ -74,67 +73,13 @@ body {
   font-size: 22px;
   text-decoration: none;
   cursor: pointer;
-  position: relative;
 }
 
-/* CART COUNT */
 #cart-count {
   font-size: 13px;
   font-weight: bold;
   margin-left: 4px;
   color: #ff4081;
-}
-
-/* ===================== HERO ===================== */
-.hero {
-  min-height: 90svh;
-  background: url("https://images.unsplash.com/photo-1520975918310-3a6d0a1c0f4a?auto=format&fit=crop&w=1600&q=80")
-    no-repeat center center / cover;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 16px 60px;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  color: #ffffff;
-  max-width: 600px;
-}
-
-.hero h1 {
-  font-size: clamp(24px, 6vw, 42px);
-  margin-bottom: 16px;
-}
-
-.hero p {
-  font-size: clamp(14px, 4vw, 18px);
-  margin-bottom: 24px;
-  opacity: 0.9;
-}
-
-/* Button */
-.btn {
-  padding: 12px 26px;
-  background: #ff4081;
-  color: #fff;
-  border-radius: 4px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: #e73370;
 }
 
 /* ===================== SHOP ===================== */
@@ -149,61 +94,82 @@ body {
   margin-bottom: 30px;
 }
 
+/* ⭐⭐⭐ BALANCED PRODUCT GRID ⭐⭐⭐ */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 18px;
-  max-width: 900px;
+  grid-template-columns: repeat(2, 1fr); /* MOBILE = 2 */
+  gap: 22px;
+  max-width: 1100px;
   margin: auto;
+  align-items: stretch;
 }
 
+/* Tablet */
+@media (min-width: 768px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1100px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===================== PRODUCT CARD ===================== */
 .product {
   background: #ffffff;
-  border-radius: 10px;
-  padding: 14px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
   text-align: center;
 }
 
-/* MAIN PRODUCT IMAGE */
+/* MAIN IMAGE SAME HEIGHT */
+.main-img,
 .product img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 8px;
   background: #f2f2f2;
 }
 
 .product h3 {
   font-size: 16px;
-  margin: 10px 0;
+  margin: 12px 0 6px;
 }
 
 .product p {
   color: #ff4081;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 /* SIZE SELECT */
 .size-select {
   width: 100%;
-  padding: 8px;
-  margin: 10px 0;
-  border-radius: 4px;
+  padding: 9px;
+  margin: 8px 0;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-/* ===================== IMAGE GALLERY (TEE SHIRT) ===================== */
-.main-img {
-  width: 100%;
-  border-radius: 4px;
-}
-
+/* ===================== THUMB GALLERY ===================== */
 .thumbs {
   display: flex;
   justify-content: center;
   gap: 6px;
-  margin: 8px 0;
+  margin: 10px 0;
+  min-height: 60px; /* prevents uneven cards */
 }
 
 .thumbs img {
@@ -221,57 +187,20 @@ body {
   border-color: #ff4081;
 }
 
-/* ===================== CART PAGE ===================== */
-.cart-page {
-  padding: 120px 16px 60px;
-  max-width: 600px;
-  margin: auto;
-  background: #fafafa;
-}
-
-.cart-page ul {
-  list-style: none;
-}
-
-.cart-page li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+/* BUTTON */
+.btn {
   padding: 12px;
-  margin-bottom: 12px;
-  background: #fff;
+  background: #ff4081;
+  color: #fff;
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.cart-page img {
-  border-radius: 4px;
-}
-
-#cart-total {
-  font-size: 18px;
   font-weight: bold;
-  margin: 20px 0;
-}
-
-.remove-btn {
-  margin-left: auto;
-  background: none;
   border: none;
-  color: red;
   cursor: pointer;
+  margin-top: auto;
 }
 
-/* ===================== CONTACT ===================== */
-.contact {
-  padding: 120px 16px 60px;
-  background: #fafafa;
-  text-align: center;
-}
-
-.contact h1 {
-  font-size: clamp(22px, 5vw, 36px);
-  margin-bottom: 30px;
+.btn:hover {
+  background: #e73370;
 }
 
 /* ===================== WHATSAPP ===================== */
@@ -286,13 +215,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   z-index: 9999;
 }
 
 .whatsapp-float img {
   width: 32px;
-  height: 32px;
 }
 
 /* ===================== MOBILE MENU ===================== */
@@ -352,31 +280,7 @@ body {
   pointer-events: auto;
 }
 
-/* ===================== SHOP GRID FIX ===================== */
-.products {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* ALWAYS 2 SIDE BY SIDE */
-  gap: 20px;
-  padding: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* Larger screens (tablet & laptop) */
-@media (min-width: 768px) {
-  .products {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Desktop wide screens */
-@media (min-width: 1100px) {
-  .products {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Mobile navbar behaviour */
+/* MOBILE NAV */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
